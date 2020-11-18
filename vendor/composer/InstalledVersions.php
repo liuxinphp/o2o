@@ -19,11 +19,20 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '30a3c39ed66a10229052c57055a9f392ac421eab',
-    'name' => 'topthink/think',
+    'reference' => '42f110898b1bc4db3e5d03f67582735e42c63b9d',
+    'name' => '__root__',
   ),
   'versions' => 
   array (
+    '__root__' => 
+    array (
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '42f110898b1bc4db3e5d03f67582735e42c63b9d',
+    ),
     'monolog/monolog' => 
     array (
       'pretty_version' => '2.1.1',
@@ -48,42 +57,6 @@ private static $installed = array (
       array (
         0 => '1.0.0',
       ),
-    ),
-    'topthink/framework' => 
-    array (
-      'pretty_version' => 'v5.1.40',
-      'version' => '5.1.40.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'df0f92d58c70207c9ce9526fa7743eeff0831328',
-    ),
-    'topthink/think' => 
-    array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '30a3c39ed66a10229052c57055a9f392ac421eab',
-    ),
-    'topthink/think-captcha' => 
-    array (
-      'pretty_version' => 'v1.0.7',
-      'version' => '1.0.7.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '0c55455df26a1626a60d0dc35d2d89002b741d44',
-    ),
-    'topthink/think-installer' => 
-    array (
-      'pretty_version' => 'v2.0.1',
-      'version' => '2.0.1.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '52f4b717a46fd00bccd47c5a9f10a5c56d29fcf9',
     ),
   ),
 );
