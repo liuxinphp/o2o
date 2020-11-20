@@ -4,27 +4,27 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit6b7e8ce7008baeaa9bdbc32aee9a88f4
+class ComposerStaticInitb2ab3cc0dfab8240f9733a97cce57904
 {
     public static $prefixLengthsPsr4 = array (
-        'P' => 
+        't' => 
         array (
-            'Psr\\Log\\' => 8,
+            'think\\composer\\' => 15,
         ),
-        'M' => 
+        'a' => 
         array (
-            'Monolog\\' => 8,
+            'app\\' => 4,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Psr\\Log\\' => 
+        'think\\composer\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+            0 => __DIR__ . '/..' . '/topthink/think-installer/src',
         ),
-        'Monolog\\' => 
+        'app\\' => 
         array (
-            0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+            0 => __DIR__ . '/../..' . '/application',
         ),
     );
 
@@ -35,9 +35,9 @@ class ComposerStaticInit6b7e8ce7008baeaa9bdbc32aee9a88f4
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit6b7e8ce7008baeaa9bdbc32aee9a88f4::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit6b7e8ce7008baeaa9bdbc32aee9a88f4::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit6b7e8ce7008baeaa9bdbc32aee9a88f4::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitb2ab3cc0dfab8240f9733a97cce57904::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitb2ab3cc0dfab8240f9733a97cce57904::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitb2ab3cc0dfab8240f9733a97cce57904::$classMap;
 
         }, null, ClassLoader::class);
     }

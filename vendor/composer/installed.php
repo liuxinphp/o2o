@@ -1,49 +1,42 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => 'dev-master',
-    'version' => 'dev-master',
+    'pretty_version' => '5.1.x-dev',
+    'version' => '5.1.9999999.9999999-dev',
     'aliases' => 
     array (
     ),
-    'reference' => '42f110898b1bc4db3e5d03f67582735e42c63b9d',
-    'name' => '__root__',
+    'reference' => NULL,
+    'name' => 'topthink/think',
   ),
   'versions' => 
   array (
-    '__root__' => 
+    'topthink/framework' => 
     array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
+      'pretty_version' => 'v5.1.40',
+      'version' => '5.1.40.0',
       'aliases' => 
       array (
       ),
-      'reference' => '42f110898b1bc4db3e5d03f67582735e42c63b9d',
+      'reference' => 'df0f92d58c70207c9ce9526fa7743eeff0831328',
     ),
-    'monolog/monolog' => 
+    'topthink/think' => 
     array (
-      'pretty_version' => '2.1.1',
-      'version' => '2.1.1.0',
+      'pretty_version' => '5.1.x-dev',
+      'version' => '5.1.9999999.9999999-dev',
       'aliases' => 
       array (
       ),
-      'reference' => 'f9eee5cec93dfb313a38b6b288741e84e53f02d5',
+      'reference' => NULL,
     ),
-    'psr/log' => 
+    'topthink/think-installer' => 
     array (
-      'pretty_version' => '1.1.3',
-      'version' => '1.1.3.0',
+      'pretty_version' => 'v2.0.1',
+      'version' => '2.0.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => '0f73288fd15629204f9d42b7055f72dacbe811fc',
-    ),
-    'psr/log-implementation' => 
-    array (
-      'provided' => 
-      array (
-        0 => '1.0.0',
-      ),
+      'reference' => '52f4b717a46fd00bccd47c5a9f10a5c56d29fcf9',
     ),
   ),
 );
