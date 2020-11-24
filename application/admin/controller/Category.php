@@ -2,20 +2,24 @@
 namespace app\admin\controller;
 use think\Controller;
 class Category extends controller{
-    private $obj;
-    public function _initialize(){
-        $this->obj=model("Category");
+    private  $obj;
+    public function _initialize() {
+        $this->obj = model("Category");
     }
     public function index(){
-        return $this->fetch();
-    }
-    //增加
-    public function add(){
-       $categorys=model("Category")->getNormalFirstCategory();
+        $categorys = model("category")->getFirstcategorys();
         return $this->fetch('',[
-            'categorys'=>$categorys
+            'categorys' => $categorys
         ]);
     }
+    //增加
+    public function add() {
+        $categorys = model("Category")->getNormalFirstCategory();
+        return $this->fetch('', [
+            'categorys'=> $categorys,
+        ]);
+    }
+
     //保存数据
     public function save(){
         $data = input('post.');
@@ -25,7 +29,7 @@ class Category extends controller{
             $this->error($validate->getError());
         }
         //将数据提交Model层
-        $res=model('Category')->add($data);
+        $res=model("Category")->add($data);
         if($res){
             $this->success('新增成功');
         }else{

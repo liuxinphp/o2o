@@ -9,16 +9,33 @@ class Category extends model{
         return $this->save($data);
     }
     //获取一级分类
-    public function getNormalFirstCategory(){
+    public function getNormalFirstCategory() {
         $data = [
-            'status'=>1,
+            'status' => 1,
+            'parent_id' => 0,
+        ];
+
+        $order = [
+            'id' => 'desc',
+        ];
+
+        return $this->where($data)
+            ->order($order)
+            ->select();
+    }
+    //获取分类
+    public function getFirstCategorys(){
+        $data = [
+            'status'=>['neq',-1],
             'parent_id'=>0
         ];
-        $order=[
-            'id'=>'desc'
+        $order = [
+            'id' =>'desc'
         ];
-        return $this->where($data)
+        $result = $this->where($data)
         ->order($order)
         ->select();
+        //echo $this->getLastSql();
+        return $result;
     }
 } 
