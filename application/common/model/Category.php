@@ -24,17 +24,17 @@ class Category extends model{
             ->select();
     }
     //获取分类
-    public function getFirstCategorys(){
+    public function getFirstCategorys($parentId=0){
         $data = [
-            'status'=>['neq',-1],
-            'parent_id'=>0
+            'parent_id'=>$parentId,
+            'status'=>['1','0'],
         ];
         $order = [
             'id' =>'desc'
         ];
         $result = $this->where($data)
         ->order($order)
-        ->select();
+        ->paginate();
         //echo $this->getLastSql();
         return $result;
     }
