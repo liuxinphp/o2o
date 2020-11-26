@@ -65,5 +65,14 @@ class Category extends controller{
             'category' => $category,
             'categorys' => $categorys
         ]);
-    }                                       
+    }           
+    //排序
+    public function listOrder($id, $listOrder) {
+        $res = model("category")->save(['listOrder'=>$listOrder], ['id'=>$id]);
+        if($res) {
+            $this->result($_SERVER['HTTP_REFERER'], 1, 'success');
+        }else {
+            $this->result($_SERVER['HTTP_REFERER'], 0, '更新失败');
+        }
+    }                         
 }

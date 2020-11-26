@@ -30,6 +30,7 @@ class Category extends model{
             'status'=>['1','0'],
         ];
         $order = [
+            'listOrder'=>'desc',
             'id' =>'desc'
         ];
         $result = $this->where($data)
