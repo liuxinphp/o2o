@@ -13,8 +13,8 @@ class Category extends Validate {
        //tp5.1写法
        'name'=>['require'],
        'parent_id'=>['number'],
-       'id'=>['id'],
-       'status'=>['number|in:-1,0,1'],
+       'id'=>['number'],
+       'status'=>['number'],
        'listorder'=>['number']
     ];
 
@@ -23,6 +23,6 @@ class Category extends Validate {
         'add' => ['name', 'parent_id', 'id'],// 添加
         'update'=>['name','parent_id','id'],//更新
         'listorder' => ['id', 'listorder'], //排序
-        'status' => ['id', 'status'],
+        'status' => ['id','status'],//修改
     ];
 }

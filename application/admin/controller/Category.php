@@ -13,6 +13,7 @@ class Category extends controller{
             'categorys' => $categorys
         ]);
     }
+    
     //增加
     public function add() {
         $categorys = model("Category")->getNormalFirstCategory();
@@ -74,5 +75,19 @@ class Category extends controller{
         }else {
             $this->result($_SERVER['HTTP_REFERER'], 0, '更新失败');
         }
-    }                         
+    }        
+    //修改状态
+    public function status(){
+        $data = input('get.');
+        $validate = validate('category');
+        if(!$validate->scene('status')->check($data)){
+            $this->error($validate->getError());
+        }
+        $res = model("category")->save(['status'=>$data['status']],['id'=>$data['id']]);
+        if($res){
+            $this->success('修改成功');
+        }else{
+            $this->error('修改失败');
+        }
+    }                 
 }
