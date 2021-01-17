@@ -14,7 +14,7 @@ class Category extends Validate {
        'name'=>['require'],
        'parent_id'=>['number'],
        'id'=>['number'],
-       'status'=>['number'],
+       'status'=>['integer'],
        'listorder'=>['number']
     ];
 

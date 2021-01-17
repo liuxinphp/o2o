@@ -32,7 +32,7 @@ function doCurl($url, $type=0, $data=[]) {
         // post
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-    }
+    }           
 
     //执行并获取内容
     $output = curl_exec($ch);
