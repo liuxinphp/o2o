@@ -39,4 +39,18 @@ class Category extends model{
         //echo $this->getLastSql();
         return $result;
     }
+    //获取商户入驻时一级分类数据
+    public function getNormalCategoryByParentId($parentId=0){
+        $data = [
+            'status' =>1,
+            'parent_id' => $parentId
+        ];
+        $order = [
+            'id' => 'desc'
+        ];
+        $result = $this->where($data)
+        ->order($order)
+        ->select();
+        return $result;
+    }   
 } 

@@ -18,8 +18,8 @@
 				<select name="city_id" class="select cityId">
 					<option value="0">--请选择--</option>
 					{volist name="citys" id="vo"}
-						<option value="{$vo.id}">{$vo.name}</option>
-					{/volist}
+					  <option value="{$vo.id}">{$vo.name}</option>
+				    {/volist}
 					
 				</select>
 				</span>
@@ -110,7 +110,9 @@
 			<div class="formControls col-xs-8 col-sm-3"> <span class="select-box">
 				<select name="category_id" class="select categoryId">
 					<option value="0">--请选择--</option>
-					
+					{volist name="categorys" id="vo"}
+					<option value="{$vo.id}">{$vo.name}</option>
+				  {/volist}
 					
 				</select>
 				</span> 
@@ -174,10 +176,10 @@
 <script type="text/javascript" src="__STATIC__/admin/hui/lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
 <script>
  var SCOPE = {
-    'city_url' : '{:url('api/city/getCitysByParentId')}',
+   'city_url' : '{:url('api/city/getCitysByParentId')}',
     'category_url' : '{:url('api/category/getCategoryByParentId')}',
 	'uploadify_swf' : '__STATIC__/admin/uploadify/uploadify.swf',
-	'image_upload' : '{:url('api/image/upload')}',
+	'image_upload' : '{:url('api/Image/upload')}',
  };
 </script>
 <!--分配编辑器-->
