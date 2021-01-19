@@ -33,7 +33,7 @@ class Register extends Controller{
         //校验商户是否存在
         $accountResult = model('BisAccount')->get(['username'=>$data['username']]);
         if($accountResult){
-            $this->error('用户存在，请重新分配');
+            $this->error('用户已存在，请重新填写');
         }
         //商户信息入库
         $BisData = [
