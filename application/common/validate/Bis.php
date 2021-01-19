@@ -15,11 +15,12 @@ class Bis extends Validate{
         'username'=>'require',
         'password'=>'require',
         'category_id'=>'require',
-        'city_path'=>'require'
+        'city_path'=>'require',
+        'description'=>'require'
     ];
     //场景设置
     protected $scene = [
-        'add'=>['name','email','city_id','bank_info','bank_name','faren','tel','address'],
+        'add'=>['name','email','city_id','bank_info','bank_name','faren','tel','address','description'],
         'login'=>['username','password'],
         'bisAdd'=>['category_id','city_path']
     ];

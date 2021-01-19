@@ -41,7 +41,7 @@ class Register extends Controller{
             'city_id'=>$data['city_id'],
             'city_path'=>empty($data['se_city_id']) ? $data['city_id'] : $data['city_id'].','.$data['se_city_id'],
             'logo'=>$data['logo'],
-            'licence_logo'=>$data['licence_log'],
+            'licence_logo'=>$data['licence_logo'],    
             'description'=>$data['description'],
             'bank_info'=>$data['bank_info'],
             'bank_user'=>$data['bank_user'],

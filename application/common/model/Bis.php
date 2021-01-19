@@ -1,7 +1,6 @@
 <?php 
 namespace app\common\model;
-use think\Model;
-class Bis extends Model{
+class Bis extends BaseModel{
     /* 
     通过状态查询商家信息
     */
@@ -18,4 +17,6 @@ class Bis extends Model{
             ->paginate();
         return $result;
     }
+
+    
 }
