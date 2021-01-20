@@ -17,5 +17,6 @@ class Index extends controller{
     public function welcome(){
         \phpmailer\Email::send('1391868887@qq.com','163邮箱','终于成功了');
         return '发送成功';
-    }
+    } 
 }
+

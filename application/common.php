@@ -40,3 +40,16 @@ function doCurl($url, $type=0, $data=[]) {
     curl_close($ch);
     return $output;
 }
+//商户入驻申请文案
+function bisRegister($status){
+    if($status==1){
+        $str = "申请成功";
+    }elseif($status==0){
+        $str = "等待平台审核，审核通过后会发送邮件通知，请注意查收";
+    }elseif($status==2){
+        $str = "非常抱歉，您提交的材料不符合要求";
+    }else{
+        $str = "该申请已被删除";
+    }
+    echo $str;
+}

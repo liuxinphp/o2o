@@ -88,8 +88,15 @@ class Register extends Controller{
         if(!$accountId){
             $this->error('申请失败');
         }
-        $this->success('申请成功',url('register.waiting',['id'=>$bisId]));
+         //发送邮件
+        $url = request()->domain().url('bis/register/waiting',['id'=>$bisId]);
+        $title = "o2o平台入驻通知";
+        $content="您提交的入驻申请需等待平台方审核，您可以通过点击链接<a href='".$url."' target='_blank'>查看链接</a>查看审核状态";
+        \phpmailer\Email::send($data['email'],$title, $content);
+        $this->success('申请成功',url('register/waiting',['id'=>$bisId]));
     }
+   
+
     //等待跳转
     public function waiting($id){
         if(empty($id)){
