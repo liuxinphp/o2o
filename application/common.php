@@ -53,3 +53,26 @@ function bisRegister($status){
     }
     echo $str;
 }
+//分页函数
+function pagination($obj) {
+    if(!$obj) {
+        return '';
+    }
+    // 优化的方案
+    $params = request()->param();
+    return '<div class="cl pd-5 bg-1 bk-gray mt-20 tp5-o2o">'.$obj->appends($params)->render().'</div>';
+}
+//获取二级城市数据
+function getSeCityName($path){
+    if(empty($path)){
+        return '';
+    }
+    if(preg_match('/,/',$path)){
+        $cityPath = explode(',',$path);
+        $cityId = $cityPath['1'];
+    }else{
+        $cityId=$path;
+    }
+    $city = model('City')->get($cityId);
+    return $city->name;
+}

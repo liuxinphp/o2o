@@ -22,6 +22,7 @@ class Bis extends Validate{
     protected $scene = [
         'add'=>['name','email','city_id','bank_info','bank_name','faren','tel','address','description'],
         'login'=>['username','password'],
-        'bisAdd'=>['category_id','city_path']
+        'bisAdd'=>['category_id','city_path'],
+        'status' => ['id','status'],//修改
     ];
 }

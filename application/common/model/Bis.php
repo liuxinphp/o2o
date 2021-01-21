@@ -4,17 +4,16 @@ class Bis extends BaseModel{
     /* 
     通过状态查询商家信息
     */
-    public function getBisByStatus() {
+    public function getBisByStatus($status=0) {
         $order = [
             'id' => 'desc',
         ];
-
         $data = [
-            'status' => [0,1]
+            'status' => $status
         ];
         $result = $this->where($data)
             ->order($order)
-            ->paginate();
+            ->paginate(5);
         return $result;
     }
 

@@ -79,14 +79,14 @@ class Category extends controller{
     //修改状态
     public function status(){
         $data = input('get.');
-        if($data==1 || $data==0){
+        if($data['status']==1 || $data['status']==0){
             $validate = validate('category');
             if(!$validate->scene('status')->check($data)){
                 $this->error($validate->getError());
             }
             $res = model("category")->save(['status'=>$data['status']],['id'=>$data['id']]);
             if($res){
-                $this->success('修改成功');
+                $this->success('状态修改成功');
             }else{
                 $this->error('修改失败');
             }

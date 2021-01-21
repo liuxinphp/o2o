@@ -41,6 +41,7 @@ class Register extends Controller{
             'city_id'=>$data['city_id'],
             'city_path'=>empty($data['se_city_id']) ? $data['city_id'] : $data['city_id'].','.$data['se_city_id'],
             'logo'=>$data['logo'],
+            'create_time'=>time(),
             'licence_logo'=>$data['licence_logo'],    
             'description'=>$data['description'],
             'bank_info'=>$data['bank_info'],
@@ -81,6 +82,7 @@ class Register extends Controller{
             'bis_id'=>$bisId,
             'username'=>$data['username'],
             'code'=>$data['code'],
+            'create_time'=>time(),
             'password'=>md5($data['password'].$data['code']),
             'is_main'=>1, //代表总管理员
         ];
@@ -96,7 +98,6 @@ class Register extends Controller{
         $this->success('申请成功',url('register/waiting',['id'=>$bisId]));
     }
    
-
     //等待跳转
     public function waiting($id){
         if(empty($id)){
