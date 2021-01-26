@@ -33,4 +33,33 @@ class BisLocation extends BaseModel{
             ->select();
         return $result;
     }
+    //获取总店信息（后台）
+    public function getLocations(){
+        $order = [
+            'id' =>'desc',
+        ];
+        $data = [
+            'status'=>[1],
+            'is_main'=>[1]
+        ];
+        $result = $this->where($data)
+            ->order($order)
+            ->select();
+        return $result;
+    }
+    //获取分店信息（后台）
+    public function getBranch($bisId){
+        $order = [
+            'id' =>'desc',
+        ];
+        $data = [
+            'status'=>[1],
+            'is_main'=>[0],
+            'bis_id'=>$bisId
+        ];
+        $result = $this->where($data)
+            ->order($order)
+            ->select();
+        return $result;
+    }
 }

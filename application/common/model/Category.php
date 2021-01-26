@@ -22,7 +22,7 @@ class Category extends model{
             ->order($order)
             ->select();
     }
-    //获取分类
+    //获取二级分类
     public function getFirstCategorys($parentId=0){
         $data = [
             'parent_id'=>$parentId,

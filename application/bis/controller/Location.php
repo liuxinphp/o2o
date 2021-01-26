@@ -68,4 +68,20 @@ class Location extends Base{
             return $this->error('门店申请失败');
         }
     }
+    //修改店铺信息
+    public function status(){
+        //获取状态
+        $data = input('get.');
+        //校验状态
+        $validate = validate('Bis');
+        if(!$validate->scene('status')->check($data)){
+            $this->error($validate->getError());
+        }
+        $location = model('BisLocation')->save(['status'=>$data['status']],['id'=>$data['id']]);
+        if(!$location){
+            $this->error('修改失败');
+        }else{
+            $this->success('修改成功');
+        }
+    }
 }

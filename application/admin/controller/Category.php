@@ -102,6 +102,5 @@ class Category extends controller{
             $this->error('删除失败');
         }
         }
-        
     }                 
 }
