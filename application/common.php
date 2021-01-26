@@ -20,7 +20,16 @@ function status($status){
     }
     echo $str;
 }
-
+//判断店铺级别
+function is_main($is_main){
+    if($is_main==1){
+        $str = "是";
+    }else{
+        $str = "否";
+    }
+    return $str;
+}
+//获取地址
 function doCurl($url, $type=0, $data=[]) {
     $ch = curl_init(); // 初始化
     // 设置选项

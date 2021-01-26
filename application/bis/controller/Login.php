@@ -25,6 +25,12 @@ class Login extends Controller{
         }
         return $this->fetch();
     }
-        
+    }
+    //退出登录
+    public function logout(){
+        //清除session
+        session(null,'bis');
+        //跳出
+        $this->redirect('login/index');
     }
 }

@@ -14,7 +14,6 @@ class Category extends model{
             'status' => 1,
             'parent_id' => 0,
         ];
-
         $order = [
             'id' => 'desc',
         ];

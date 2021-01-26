@@ -16,7 +16,9 @@ class Bis extends Validate{
         'password'=>'require',
         'category_id'=>'require',
         'city_path'=>'require',
-        'description'=>'require'
+        'description'=>'require',
+        'category_id'=>'require',
+        'contact'=>'require',
     ];
     //场景设置
     protected $scene = [
@@ -24,5 +26,6 @@ class Bis extends Validate{
         'login'=>['username','password'],
         'bisAdd'=>['category_id','city_path'],
         'status' => ['id','status'],//修改
+        'add_location'=>['name','city_id','content','category_id','address','tel','contact'] //添加分店信息
     ];
 }

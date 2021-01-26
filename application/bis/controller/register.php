@@ -72,7 +72,7 @@ class Register extends Controller{
             'content'=>empty($data['content']) ? '' : $data['content'],
             'address'=>$data['address'],
             'xpoint'=>empty($lnglat['result']['location']['lng']) ? '' : $lnglat['result']['location']['lng'],
-            'ypoint'=>empty($lnglat['result']['location']['lat']) ? '' : $lnglat['result']['location']['lat']
+            'ypoint'=>empty($lnglat['result']['location']['lat']) ? '' : $lnglat['result']['location']['lat'],
         ];
         $locationId = model('BisLocation')->add($locationData);
         //账户信息校验，加盐
@@ -85,8 +85,11 @@ class Register extends Controller{
             'create_time'=>time(),
             'password'=>md5($data['password'].$data['code']),
             'is_main'=>1, //代表总管理员
+            'email'=>$data['email']
         ];
+        //$userId = model('User')->add($accountData);
         $accountId = model('BisAccount')->add($accountData);
+
         if(!$accountId){
             $this->error('申请失败');
         }
