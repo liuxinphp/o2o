@@ -1,0 +1,48 @@
+<!--包含头部文件-->
+{include file="public/header" /}
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 团购列表 </nav>
+<div class="page-container">
+  <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"> <a class="btn btn-primary radius"  href="{:url('deal/add')}"><i class="Hui-iconfont">&#xe600;</i> 添加团购</a></span> <span class="r"></span> </div>
+  <div class="mt-20">
+    <table class="table table-border table-bordered table-bg table-hover table-sort">
+      <thead>
+      <tr class="text-c">
+        <th width="80">团购名称</th>
+        <th width="100">所属城市</th>
+        <th width="100">所属分类</th>
+        <th width="100">所属子类</th>
+        <th width="60">支持门店</th>
+        <th width="100">团购开始时间</th>
+        <th width="100">团购结束时间</th>
+        <th width="60">库存数</th>
+        <th width="100">原价</th>
+        <th width="100">团购价</th>
+        <th width="100">团购描述</th>
+        <th width="100">购买须知</th>
+      </tr>
+      </thead>
+      <tbody>
+    {volist name="deal" id="vo"}
+        <tr class="text-c">
+        <td>{$vo.name}</td>
+        <td>{$categoryArrs[$vo.category_id]}</td>
+        <td>{$cityArrs[$vo.city_id]}</td>
+        <td>{$vo.se_category_id}</td>
+        <td class="td-status">{$vo.location_ids}</td>
+        <td>{$vo.start_time|date="Y-m-d H:i:s"}</td>
+        <td>{$vo.end_times|date="Y-m-d H:i:s"}</td>
+        <td>{$vo.total_count}</td>
+        <td>{$vo.origin_price}</td>
+        <td>{$vo.current_price}</td>
+        <td>{$vo.description}</td>
+        <td>{$vo.notes}</td>
+        </tr>
+    {/volist}
+      </tbody>
+    </table>
+  </div>
+</div>
+{:pagination($deal)}
+<!--包含头部文件-->
+{include file="public/footer" /}

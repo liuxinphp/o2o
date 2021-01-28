@@ -52,4 +52,5 @@ class Category extends model{
         ->select();
         return $result;
     }   
+    
 } 

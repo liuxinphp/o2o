@@ -16,7 +16,7 @@ class BisLocation extends BaseModel{
         ];
         $result = $this->where($data)
             ->order($order)
-            ->select();
+            ->paginate(2);
         return $result;
     }
     //获取分店申请信息（后台）

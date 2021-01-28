@@ -68,7 +68,7 @@ class Location extends Base{
             return $this->error('门店申请失败');
         }
     }
-    //修改店铺信息
+    //修改店铺状态
     public function status(){
         //获取状态
         $data = input('get.');
@@ -83,5 +83,9 @@ class Location extends Base{
         }else{
             $this->success('修改成功');
         }
+    }
+    //修改店铺信息
+    public function edit(){
+        
     }
 }

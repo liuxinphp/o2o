@@ -18,14 +18,15 @@ class City extends model{
     //获取一级城市分类
     public function getNormalCity($parentId=0){
         $data = [
-            'parent_id'=>$parentId
+            'parent_id'=>$parentId,
+            'status'=>1
         ];
         $order=[
             'id'=>'desc'
         ];
         return $this->where($data)
         ->order($order)
-        ->paginate(5);
+        ->paginate();
     }
     //添加城市
     public function add($data){
