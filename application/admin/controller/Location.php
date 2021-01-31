@@ -1,7 +1,6 @@
 <?php 
 namespace app\admin\controller;
-use think\Controller;
-class Location extends Controller{
+class Location extends Base{
     //总店列表
     public function index(){
         //查询总店信息
@@ -25,21 +24,5 @@ class Location extends Controller{
         return $this->fetch('',[
             'Location'=>$Location
         ]);
-    }
-    //分店审核
-    public function status(){
-        $data = input('get.');
-        $id = $data['id'];
-        $validate = validate('Location');
-        if(!$validate->scene('status')->check($data)){
-            $this->error($validate->getError());
-        }
-        //修改状态
-        $Location = model('BisLocation')->updateById($data, $id);
-        if($Location){
-            $this->success('审核通过');
-        }else{
-            $this->error('审核不通过');
-        }
     }
 }

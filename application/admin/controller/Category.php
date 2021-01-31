@@ -1,7 +1,6 @@
 <?php
 namespace app\admin\controller;
-use think\Controller;
-class Category extends controller{
+class Category extends Base{
     private  $obj;
     public function _initialize() {
         $this->obj = model("Category");
@@ -76,31 +75,4 @@ class Category extends controller{
             $this->result($_SERVER['HTTP_REFERER'], 0, '更新失败');
         }
     }        
-    //修改状态
-    public function status(){
-        $data = input('get.');
-        if($data['status']==1 || $data['status']==0){
-            $validate = validate('category');
-            if(!$validate->scene('status')->check($data)){
-                $this->error($validate->getError());
-            }
-            $res = model("category")->save(['status'=>$data['status']],['id'=>$data['id']]);
-            if($res){
-                $this->success('状态修改成功');
-            }else{
-                $this->error('修改失败');
-            }
-        }else{
-            $validate = validate('category');
-        if(!$validate->scene('status')->check($data)){
-            $this->error($validate->getError());
-        }
-        $res = model("category")->save(['status'=>$data['status']],['id'=>$data['id']]);
-        if($res){
-            $this->success('删除成功');
-        }else{
-            $this->error('删除失败');
-        }
-        }
-    }                 
 }

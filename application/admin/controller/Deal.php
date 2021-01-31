@@ -1,7 +1,6 @@
 <?php 
 namespace app\admin\controller;
-use think\Controller;
-class Deal extends Controller{
+class Deal extends Base{
     public function index(){
         //搜索
         $data=input('get.');
@@ -70,12 +69,13 @@ class Deal extends Controller{
              //转换为字符串
              //$sdata['name'] = implode(" ",$sdata['name']);
          }
+         
          //查找城市
          $citys = model('City')->getNormalCitysByParentId($parentId=0);
          //查询分类
          $categorys = model('Category')->getNormalCategoryByParentId($parentId=0);
          //根据搜索框提交的信息查找团购
-         $deals = model('Deal')->getNormalDeals($sdata);
+         $deals = model('Deal')->getDeals($sdata);
          //将城市和分类数据转换为数组格式
          $cityArrs=$categoryArrs=[];
          foreach($citys as $city){

@@ -1,7 +1,6 @@
 <?php 
 namespace app\admin\controller;
-use think\Controller;
-class City extends Controller{
+class City extends Base{
     public function index(){
         $parentId = input('get.parent_id',0,'intval');
         $citys = model('City')->getNormalCity($parentId);
@@ -47,20 +46,6 @@ class City extends Controller{
         }else{
             $this->error('修改失败');
         }
-    }
-    //修改城市状态
-    public function status(){
-        $data = input('get.');
-            $validate = validate('city');
-            if(!$validate->scene('status')->check($data)){
-                $this->error($validate->getError());
-            }
-            $status = model('city')->save(['status'=>$data['status']],['id'=>$data['id']]);
-            if($status){
-                $this->success('状态修改成功');
-            }else{
-                $this->error('修改失败');
-            }
     }
     //编辑
     public function edit($id=0){

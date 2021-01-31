@@ -37,7 +37,7 @@ class Register extends Controller{
         }
         //商户信息入库
         $BisData = [
-            'name'=>$data['name'],
+            'name'=>htmlentities($data['name']),   //字符转义防XSS攻击
             'city_id'=>$data['city_id'],
             'city_path'=>empty($data['se_city_id']) ? $data['city_id'] : $data['city_id'].','.$data['se_city_id'],
             'logo'=>$data['logo'],

@@ -39,7 +39,7 @@ class Deal extends Base{
                 'category_id'=>$data['category_id'],
                 'se_category_id'=>empty($data['se_category_id'])?'':implode(',',$data['se_category_id']),
                 'city_id'=>$data['city_id'],
-                'se_city_id'=>$data['se_city_id'],
+                'se_city_id'=>empty($data['se_city_id']) ? '' : $data['se_city_id'],
                 'location_ids' => empty($data['location_ids']) ? '' : implode(',', $data['location_ids']),
                 'start_time'=>strtotime($data['start_time']),
                 'end_times'=>strtotime($data['end_times']),
@@ -47,6 +47,7 @@ class Deal extends Base{
                 'origin_price' => $data['origin_price'],
                 'current_price'=>$data['current_price'],
                 'coupons_begin_time'=>$data['coupons_begin_time'],
+                'create_time'=>time(),
                 'coupons_end_time'=>$data['coupons_end_time'],
                 'description'=>$data['description'],
                 'notes'=>$data['notes']

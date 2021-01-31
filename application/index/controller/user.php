@@ -11,7 +11,15 @@ class User extends Controller
     //注册
     public function register()
     {
-        return $this->fetch();
+        if(request()->isPost()){
+            $data = input('post.');
+            
+            if(!captcha_check($data['verifycode'])){
+                $this->error('验证码错误');
+            }
+        }else{
+            return $this->fetch();
+        }
     }
 }
 

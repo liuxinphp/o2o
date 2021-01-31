@@ -21,6 +21,7 @@ class Deal extends Validate{
     ];
     protected $scene =[
         'add'=>['name','city_id','category_id','location_ids','start_time','end_times','total_count','origin_price',
-        'current_price','coupons_begin_time','coupons_end_time','description','notes']
+        'current_price','coupons_begin_time','coupons_end_time','description','notes'],
+        'status' => ['id','status'],//修改
     ];
 }
