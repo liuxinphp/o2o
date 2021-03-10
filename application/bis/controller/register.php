@@ -20,11 +20,13 @@ class Register extends Controller{
             $this->error('请求错误');
         }
         $data = input('post.');
+        var_dump($data);
+        die();
         //信息校验
         $validate = Validate('Bis');
         if(!$validate->scene('add')->check($data)){
             $this->error($validate->getError());
-        }  
+        }   
         //获取经纬度
         $lnglat=\map::getLngLat($data['address']);
         if(empty($lnglat) || $lnglat['status']!=0 || $lnglat['result']['precise'] !=1){

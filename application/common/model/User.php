@@ -1,8 +1,13 @@
 <?php 
 namespace app\common\model;
 class User extends BaseModel{
-    public function updateById($data, $id) {
-        // allowField 过滤data数组中非数据表中的数据
-        return $this->allowField(true)->save($data, ['id'=>$id]);
+    
+    //注册
+    public function add($data=[]){
+        if(!is_array($data)){
+            exception('传递的数据不是数组');
+        }
+        $data['status']=1;
+        return $this->data($data)->allowField(true)->save();
     }
 }

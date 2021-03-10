@@ -15,6 +15,8 @@ Route::get('think', function () {
 
 Route::get('hello/:name', 'index/hello');
 
+Url::root('/index.php');
+
 return [
 
 ];

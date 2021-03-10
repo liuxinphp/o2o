@@ -52,5 +52,37 @@ class Category extends model{
         ->select();
         return $result;
     }   
-    
+    //前台获取一级分类，前5条
+    public function getFirstRecommendCategory($parentId,$limit=5){
+        $data = [
+            'parent_id' =>$parentId,
+            'status' =>1
+        ];
+        $order = [
+            'id' => 'desc',
+            'listOrder'=>'desc'
+        ];
+        $result = $this->where($data)
+        ->order($order);
+        if($limit){
+            $result = $result->limit($limit);
+        }
+       return $result->select();
+        
+    }
+    //前台根据一级分类获取二级分类数据
+    public function getSedRecommendCategory($parentId){
+        $data=[
+            'parent_id' =>$parentId,
+            'status' =>1
+        ];
+        $order =[
+            'id'=>'desc',
+            'listOrder'=>'desc'
+        ];
+        $result = $this->where($data)
+        ->order($order)
+        ->select();
+        return $result;
+    }
 } 

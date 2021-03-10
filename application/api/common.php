@@ -1,8 +1,8 @@
-<?php 
-function show($status,$message='',$data=[]){
+<?php
+function show($status, $message='' , $data=[]) {
     return [
         'status' => intval($status),
-        'message'=>$message,
-        'data' => $data
+        'message' => $message,
+        'data' => $data,
     ];
 }
