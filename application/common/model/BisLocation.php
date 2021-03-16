@@ -6,17 +6,17 @@ class BisLocation extends BaseModel{
         return $this->allowField(true)->save($data, ['id'=>$id]);
     }
     //获取分店信息用户端
-    public function getLocation(){
+    public function getLocation($bisId=0){
         $order = [
             'id' =>'desc',
         ];
         $data = [
             'status'=>[0,1],
-            'is_main'=>[0]
+            'bis_id'=>$bisId
         ];
         $result = $this->where($data)
             ->order($order)
-            ->paginate(2);
+            ->paginate(5);
         return $result;
     }
     //获取分店申请信息（后台）

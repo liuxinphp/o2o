@@ -26,5 +26,6 @@ class Base extends Controller{
             $this->account = session('BisAccount','','bis');
         }
         return $this->account;
+        
     }
 }

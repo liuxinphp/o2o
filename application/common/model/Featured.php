@@ -12,7 +12,7 @@ class Featured extends BaseModel{
         ];
         $result= $this->where($data)
         ->order($order)
-        ->paginate(2);
+        ->paginate(5);
         //echo $this->getLastSql();
         return $result;
     }

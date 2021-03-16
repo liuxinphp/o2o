@@ -11,13 +11,18 @@ class Index extends Base
         $this->getCity($citys);//调用自定义城市方法
         $this->assign('city',$this->city);//模板赋值
         $this->assign('user',$this->getLoginUser());//登录信息
-        $cates = $this->getRecommendCates();
-        /* var_dump($cates);
-        die(); */   
+        $cates = $this->getRecommendCates();//获取所有分类
         $this->assign('cates',$cates);
-        $this->assign('cate',$this->getRecommendCates());//获取推荐的5个分类
+        $cate = $this->getFirstRecommendCates();//一级分类
+        $this->assign('cate',$cate);
+        //商品分类数据
+        $datas = model('Deal')->getNormalDealByCategoryCityId(2,$this->city->id);
+        //获取4个子分类
+        $meishicates = model('Category')->getSedRecommendCategory(2);
         return $this->fetch('',[
             'citys' => $citys,
+            'meishicates' => $meishicates,
+            'datas' => $datas
         ]);
     }
     //自定义城市
@@ -51,7 +56,14 @@ class Index extends Base
     {
         return 'hello,' . $name;
     }
-    //获取分类数据
+     //获取一级分类数据
+     public function getFirstRecommendCates(){
+        $parentIds = $sedcatArr = $recomCats=[];
+        //获取一级分类
+        $cate = model('Category')->getNormalCategoryByParentId();
+        return $cate;
+    }
+    //获取所有分类数据
     public function getRecommendCates(){
         $parentIds = $sedcatArr = $recomCats=[];
         //获取一级分类

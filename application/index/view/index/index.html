@@ -1,5 +1,4 @@
 {include file="public/head,public/nav"}
-
     <div class="container">
         <div class="top-container">
             <div class="mid-area">
@@ -32,15 +31,15 @@
                         <div class="floor-header">
                             <h3>美食推荐</h3>
                             <ul class="reco-words">
-                                
-                                <li><a href="#" target="_blank"></a></li>
-                               
+                                {volist name="meishicates" id="vo"}
+                                <li><a href="#" target="_blank">{$vo.name}</a></li>
+                                {/volist}
 
                                 <li><a class="no-right-border no-right-padding" target="_blank" href="#">全部<span class="all-cate-arrow"></span></a></li>
                             </ul>
                         </div>
                         <ul class="itemlist eight-row-height">
-                            
+                                {volist name="datas" id="vo"}
                                 <li class="j-card">
                                     <a>
                                         <div class="imgbox">
@@ -50,7 +49,7 @@
                                             <div class="range-area">
                                                 <div class="range-bg"></div>
                                                 <div class="range-inner">
-
+                                                    {$vo.description}
                                                 </div>
                                             </div>
                                             <div class="borderbox">
@@ -63,25 +62,24 @@
                                             <div class="header">
                                                 <h4 class="title "></h4>
                                             </div>
-                                            <p></p>
+                                            <p>{$vo.name}</p>
                                         </a>
                                         <div class="add-info"></div>
                                         <div class="pinfo">
-                                            <span class="price"><span class="moneyico">¥</span></span>
-                                            <span class="ori-price">价值<span class="price-line">¥<span></span></span></span>
+                                            <span class="price"><span class="moneyico">¥{$vo.current_price}</span></span>
+                                            <span class="ori-price">价值<span class="price-line">¥{$vo.origin_price}<span></span></span></span>
                                         </div>
                                         <div class="footer">
-                                            <span class="sold">已售</span>
+                                            <span class="sold">已售:{$vo.buy_count}</span>
                                             <div class="bottom-border"></div>
                                         </div>
                                     </div>
                                 </li>
+                                {/volist}
                                
-                                <span style="color:red;font-size:24px;">该城市下没有此分类数据 </span>
-                           
                         </ul>
                     </div>
-
+                    
                 </div>
             </div>
         </div>

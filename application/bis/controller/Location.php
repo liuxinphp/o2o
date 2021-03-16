@@ -3,8 +3,9 @@ namespace app\bis\controller;
 class Location extends Base{
     //门店列表
     public function index(){
+        $bisId = $this->getLoginUser();
         //查询分店信息
-        $Location = model('BisLocation')->getLocation();
+        $Location = model('BisLocation')->getLocation($bisId['bis_id']);
         return $this->fetch('',[
             'Location'=>$Location
         ]);

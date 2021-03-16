@@ -2,7 +2,8 @@
 namespace app\bis\controller;
 class Deal extends Base{
     public function index(){
-        $deal = model('Deal')->getDeals(1);
+        $bisId = $this->getLoginUser();
+        $deal = model('Deal')->getDeals(1,$bisId['bis_id']);
         $cityArrs=$categoryArrs=[];
         //查询城市
         $citys = model('City')->getNormalCitysByParentId($parentId=0);

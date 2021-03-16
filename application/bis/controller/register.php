@@ -20,8 +20,6 @@ class Register extends Controller{
             $this->error('请求错误');
         }
         $data = input('post.');
-        var_dump($data);
-        die();
         //信息校验
         $validate = Validate('Bis');
         if(!$validate->scene('add')->check($data)){
