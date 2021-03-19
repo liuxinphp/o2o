@@ -18,7 +18,7 @@
         <div class="right-sidebar">
             <div class="right-ad">
                 <ul class="slidepic">
-                    <li><a><img src="/upload/20170219/ads.jpg" width="259px" /></a></li>
+                    <li><a href="{:url('detail/index',['id'=>$vo.id])}"><img src="" width="259px" /></a></li>
                 </ul>
             </div>
             
@@ -32,13 +32,13 @@
                             <h3>美食推荐</h3>
                             <ul class="reco-words">
                                 {volist name="meishicates" id="vo"}
-                                <li><a href="#" target="_blank">{$vo.name}</a></li>
+                                <li><a href="{:url('list/index',['id'=>$vo.id])}" target="_blank">{$vo.name}</a></li>
                                 {/volist}
-
-                                <li><a class="no-right-border no-right-padding" target="_blank" href="#">全部<span class="all-cate-arrow"></span></a></li>
+                                <li><a class="no-right-border no-right-padding" target="_blank" href="{:url('list/index',['id'=>1])}">全部<span class="all-cate-arrow"></span></a></li>
                             </ul>
                         </div>
                         <ul class="itemlist eight-row-height">
+                                {if condition="$datas"}
                                 {volist name="datas" id="vo"}
                                 <li class="j-card">
                                     <a>
@@ -53,14 +53,14 @@
                                                 </div>
                                             </div>
                                             <div class="borderbox">
-                                                <img src="" />
+                                                <a href="{:url('list/index',['id'=>$vo.id])}" target="_blank"><img src="" /></a>
                                             </div>
                                         </div>
                                     </a>
                                     <div class="contentbox">
-                                        <a href="#" target="_blank">
+                                        <a href="{:url('detail/index',['id'=>$vo.id])}" target="_blank">
                                             <div class="header">
-                                                <h4 class="title "></h4>
+                                                <h4 class="title ">【{$vo.location_ids|countLocation}店通用】</h4>
                                             </div>
                                             <p>{$vo.name}</p>
                                         </a>
@@ -76,7 +76,9 @@
                                     </div>
                                 </li>
                                 {/volist}
-                               
+                                {else /}
+                                <span style="color:red;font-size:24px;">该城市下没有分类数据</span>
+                               {/if}
                         </ul>
                     </div>
                     

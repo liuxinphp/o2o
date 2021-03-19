@@ -85,3 +85,13 @@ function getSeCityName($path){
     $city = model('City')->get($cityId);
     return $city->name;
 }
+//查询通用城市
+function countLocation($ids){
+    if(!$ids){
+        return 1;
+    }
+    if(preg_match('/,/',$ids)){
+        $arr = explode(',',$ids);
+        return count($arr);
+    }
+}
