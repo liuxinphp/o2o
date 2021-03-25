@@ -33,18 +33,19 @@ class BisLocation extends BaseModel{
             ->select();
         return $result;
     }
-    //获取总店信息（后台）
-    public function getLocations(){
+    //获取店铺信息（后台）
+    public function getLocations($bisId=0){
         $order = [
             'id' =>'desc',
         ];
         $data = [
             'status'=>[1],
-            'is_main'=>[1]
+            'bis_id'=>$bisId
         ];
         $result = $this->where($data)
             ->order($order)
-            ->select();
+            ->paginate(5);
+           // echo $this->getLastSql();
         return $result;
     }
     //获取分店信息（后台）

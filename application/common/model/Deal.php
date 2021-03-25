@@ -3,18 +3,30 @@ namespace app\common\model;
 use think\Db;
 class Deal extends BaseModel{
     //提交的团购列表
-    public function getDeals($status=0,$bisId=0){
+    public function getDeals($status=0){
         $order = [
             'id' =>'desc'
         ];
         $data =[
             'status'=>$status,
-            'bis_id' => $bisId
         ];
         $result = $this->where($data)
         ->order($order)
         ->paginate(5);
-      
+        return $result;
+    }
+    //商户团购产品查询
+    public function BisgetDeals($status=0,$bisId=0){
+        $order = [
+            'id' =>'desc'
+        ];
+        $data =[
+            'status'=>$status,
+            'bis_id'=>$bisId
+        ];
+        $result = $this->where($data)
+        ->order($order)
+        ->paginate(5);
         return $result;
     }
     /*  public function getNormalDeals($data = []){
@@ -69,5 +81,31 @@ class Deal extends BaseModel{
             $result = $result->limit($limit);
         } */
         //return $result->select();
+    }
+    //根据分类、销量、城市、价格等数据获取产品
+    public function getDealByCondition($data=[],$order){
+        if(!empty($order['order_price'])){
+            $order['current_price']='desc';
+        }
+        if(!empty($order['order_sales'])){
+            $order['buy_count']='desc';
+        }
+        if(!empty($order['order_time'])){
+            $order['create_time']='desc';
+        }
+        $order['id'] = 'desc';
+        $datas[] = "end_times > " .time();
+        if(!empty($data['se_category_id'])){
+            $datas[] = "find_in_set(".$data['se_category_id'].",se_category_id)";
+        }
+        if(!empty($data['category_id'])){
+            $datas[] = 'category_id=' .$data['category_id'];
+        }
+        if(!empty($data['city_id'])){
+            $datas[] = 'city_id=' .$data['city_id'];
+        }
+        return $this->where(implode(' AND ',$datas))
+        ->order($order)
+        ->paginate(2);
     }
 }

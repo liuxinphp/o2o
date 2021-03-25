@@ -75,7 +75,8 @@ class Deal extends Base{
          //查询分类
          $categorys = model('Category')->getNormalCategoryByParentId($parentId=0);
          //根据搜索框提交的信息查找团购
-         $deals = model('Deal')->getDeals($sdata);
+         $deals = model('Deal')->getDeals();
+         
          //将城市和分类数据转换为数组格式
          $cityArrs=$categoryArrs=[];
          foreach($citys as $city){

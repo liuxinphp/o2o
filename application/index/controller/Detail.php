@@ -10,6 +10,9 @@ class Detail extends Base{
         }
         //根据id查询商品数量
         $deal = model('Deal')->get($id);
+        //获取商户bis_id，根据商户id查找商户信息
+        $bisId = $deal->bis_id;
+        $bis = model('Bis')->get($bisId);
         if(!$deal || $deal->status !=1){
             $this->error('该商品不存在');
         }
@@ -42,7 +45,7 @@ class Detail extends Base{
             if($h){
                 $timedate .=$h."小时";
             }
-            $m = floor($timedate%(3600*24)%3600/60);
+            $m = floor($dtime%(3600*24)%3600/60);
             if($m){
                 $timedate .= $m."分钟";
             }
@@ -55,7 +58,9 @@ class Detail extends Base{
             'locations'=>$locations,
             'deal'=>$deal,
             'overplus'=>$deal->total_count-$deal->buy_count,
-            'flag'=>$flag
+            'flag'=>$flag,
+            'mapstr'=>$locations[0]['xpoint'].','.$locations[0]['ypoint'],
+            'bis'=>$bis
         ]
         );
     }

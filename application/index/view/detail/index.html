@@ -1,4 +1,5 @@
 {include file="public/head,public/nav"}
+
 <div class="p-detail">
   <div class="p-bread-crumb">
     <div class="w-bread-crumb">
@@ -133,7 +134,7 @@
               <div class="branch-content">
                 <div class="shop-map">
                   <div class="w-map">
-                    <img src="">
+                    <img src="{:url('map/getMapImage',['data'=>$mapstr])}">
                   </div>
                 </div>
                 <div class="branch-detail">
@@ -141,15 +142,15 @@
                     <div class="branch-list-content">
                       <div class="w-branch-list">
                         <ul class="branch-list-content">
-                         
+                         {volist name="locations" id="vo"}
                           <li class="branch branch-open">
-                            <a href="#" target="_blank" class="branch-name"></a>
-                            <p class="branch-address"></p>
-                            <p class="branch-tel"></p>
+                            <a href="#" target="_blank" class="branch-name">{$vo.name}</a>
+                            <p class="branch-address">地址:{$vo.address}</p>
+                            <p class="branch-tel">电话:{$vo.tel}</p>
                             <p class="map-travel">
                             </p>
                           </li>
-                         
+                         {/volist}
                         </ul>
                       </div>
                     </div>
@@ -158,10 +159,10 @@
               </div>
             </div>
           </div>
-          <div class="ifram"></div>
+          <div class="ifram">{$deal->description}</div>
         </li>
-        <li class="tab"><div class="ifram"></div></li>
-        <li class="tab"><div class="ifram"></div></li>
+        <li class="tab"><div class="ifram">{$deal->notes}</div></li>
+        <li class="tab"><div class="ifram">{$bis->description}</div></li>
       </ul>
     </div>
   </div>

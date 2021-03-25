@@ -35,7 +35,7 @@
         <td>{$vo.total_count}</td>
         <td>{$vo.origin_price}</td>
         <td>{$vo.current_price}</td>
-        <td>{$vo.description}</td>
+        <td>{$vo.description|html_entity_decode}</td>
         <td>{$vo.notes}</td>
         </tr>
     {/volist}

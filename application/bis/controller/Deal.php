@@ -3,7 +3,7 @@ namespace app\bis\controller;
 class Deal extends Base{
     public function index(){
         $bisId = $this->getLoginUser();
-        $deal = model('Deal')->getDeals(1,$bisId['bis_id']);
+        $deal = model('Deal')->BisgetDeals(1,$bisId['bis_id']);
         $cityArrs=$categoryArrs=[];
         //查询城市
         $citys = model('City')->getNormalCitysByParentId($parentId=0);
@@ -26,7 +26,7 @@ class Deal extends Base{
         $bisId = $this->getLoginUser()->bis_id;
         if(request()->isPost()) {
             // 走插入逻辑
-            $data = input('post.');
+            $data = input('post.','','htmlentities');
             // 严格校验提交的数据
             $validate = validate('Deal');
             if(!$validate->scene('add')->check($data)){
@@ -64,7 +64,7 @@ class Deal extends Base{
             $citys = model('City')->getNormalCitysByParentId();
             //获取分类信息
             $categorys = model('Category')->getNormalFirstCategory();
-            $bislocations=model('BisLocation')->getLocation();
+            $bislocations=model('BisLocation')->getLocation($bisId);
             return $this->fetch('', [
                 'citys' => $citys,
                 'categorys' => $categorys,
