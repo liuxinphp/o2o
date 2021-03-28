@@ -177,6 +177,45 @@ create table if not exists `o2o_featured`(
     `update_time` int(10) unsigned not null default 0
 )ENGINE=INNODB auto_increment=1 CHARSET=utf8;
 
+#订单表
+create table if not exists `o2o_order`(
+    `id` int(11) unsigned  auto_increment,
+    `out_trade_no` varchar(100) not null default '' COMMENT '订单编号',
+    `transaction_id` varchar(100) not null default '',
+    `user_id` int(11) not null default 0,
+    `username` varchar(25) not null default '',
+    `pay_time` varchar(50) not null default '',
+    `payment_id` int(11) not null default 0,
+    `deal_id` int(11) not null default 0,
+    `deal_count` int(11) not null default 0,
+    `pay_status` tinyint(1) not null default 1 COMMENT '支付状态:1支付成功 0未支付 2支付失败 3其他',
+    `total_price` decimal(20,2) not null default 0,
+    `pay_amount` decimal(20,2) not null default 0,
+    `status` tinyint(1) not null default 0,
+    `create_time` int(10) unsigned not null default 0,
+    `update_time` int(10) unsigned not null default 0 ,
+    PRIMARY KEY(`id`),
+    UNIQUE out_trade_no(`out_trade_no`),
+    key user_id(`user_id`),
+    key create_time(`create_time`)
+)ENGINE=INNODB auto_increment=1 CHARSET=utf8;
+
+#优惠券表
+create table if not exists `o2o_coupons`(
+    `id` int(11) unsigned auto_increment,
+    `sn` varchar(25) not null default '',
+    `password` varchar(100) not null default '',
+    `user_id` int(11) not null default 0,
+    `deal_id` int(11) not null default 0,
+    `order_id` int(11) not null default 0,
+    `status` tinyint(1) not null default 1 COMMENT '0:未发给用户 1：已发给用户 2：用户已经使用 3：禁用',
+    `create_time` int(11) unsigned not null default 0,
+    `update_time` int(11) unsigned not null default 0,
+    primary key (`id`),
+    key user_id (`user_id`),
+    key deal_id (`deal_id`),
+    key create_time (`create_time`)
+)ENGINE=INNODB auto_increment=1 CHARSET=utf8;
 
 
 

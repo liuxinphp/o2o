@@ -4,6 +4,7 @@ use think\Controller;
 class Base extends Controller{
     public $city = '';
     public $account = '';
+    
     //自定义城市
     public function getCity($citys){
         foreach($citys as $city){

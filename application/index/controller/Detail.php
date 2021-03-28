@@ -19,7 +19,7 @@ class Detail extends Base{
          // 城市数据
          $citys = model('City')->getNormalCity();
          $this->getCity($citys);//调用自定义城市方法
-         $this->assign('city',$this->city);//模板赋值
+         $this->assign('city',$this->city);//模板赋值自定义城市
          $this->assign('user',$this->getLoginUser());//登录信息
          $cates = $this->getRecommendCates();//获取所有分类
          $this->assign('cates',$cates);

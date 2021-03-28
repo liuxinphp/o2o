@@ -234,7 +234,7 @@
   });
   $(".o2o_click").click(function() {
     var count = $(".buycount-ctrl input").val();
-    url = "";
+    url = "{:url('order/confirm',['id'=>$deal.id])}" + "&count="+count;
     window.open(url);
   });
 </script>

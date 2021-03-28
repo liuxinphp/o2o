@@ -83,14 +83,15 @@ class Deal extends BaseModel{
         //return $result->select();
     }
     //根据分类、销量、城市、价格等数据获取产品
-    public function getDealByCondition($data=[],$order){
-        if(!empty($order['order_price'])){
-            $order['current_price']='desc';
-        }
-        if(!empty($order['order_sales'])){
+    public function getDealByConditions($data=[],$orders){
+        if(!empty($orders['order_sales'])){
             $order['buy_count']='desc';
         }
-        if(!empty($order['order_time'])){
+        if(!empty($orders['order_price'])){
+            $order['current_price']='desc';
+        }
+        
+        if(!empty($orders['order_time'])){
             $order['create_time']='desc';
         }
         $order['id'] = 'desc';
@@ -104,6 +105,7 @@ class Deal extends BaseModel{
         if(!empty($data['city_id'])){
             $datas[] = 'city_id=' .$data['city_id'];
         }
+        $datas[]='status=1';
         return $this->where(implode(' AND ',$datas))
         ->order($order)
         ->paginate(2);

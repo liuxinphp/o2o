@@ -59,9 +59,11 @@ class Lists extends Base{
         }else{
             $order_flag = '';
         }
+        
         //根据条件查询团购商品
         $data['city_id'] = $this->city->id;
-        $deals = model('Deal')->getDealByCondition($data,$order);
+        $deals = model('Deal')->getDealByConditions($data,$order);
+      
         return $this->fetch('',[
             'citys' => $citys,
             'category'=>$categorys,

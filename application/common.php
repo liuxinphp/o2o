@@ -95,3 +95,9 @@ function countLocation($ids){
         return count($arr);
     }
 }
+//订单编号
+function setOrderNo(){
+    list($t1,$t2) = explode(' ',microtime());
+    $t3 = explode(".",$t1);
+    return $t2.$t3[0].rand(10000,99999);
+}
