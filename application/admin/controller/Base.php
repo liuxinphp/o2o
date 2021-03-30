@@ -23,4 +23,16 @@ class Base extends Controller{
             $this->error('修改失败');
         }
     }
+    //获取登录账户信息
+    public function getLoginUser(){
+        if(!$this->account){
+            $this->account = session('admin','','o2o');
+        }
+        return $this->account;
+    }
+     //退出登录
+     public function logout(){
+        session(null,'o2o');
+        $this->redirect(url('admin/login'));
+    }
 }

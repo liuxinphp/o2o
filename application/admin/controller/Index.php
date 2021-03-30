@@ -1,9 +1,15 @@
 <?php
 namespace app\admin\controller;
 use think\Controller;
-class Index extends controller{
+class Index extends Base{
     public function index(){
-        return $this->fetch();
+        //判断用户是否登录
+        $user= session('admin','','o2o');
+        if(!$user){
+            $this->error('请登录','user/login');
+        }else{
+            return $this->fetch();
+        }
     }
     public function test(){
         \map::getLngLat('西安市太白南路363号');exit;
