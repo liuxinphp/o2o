@@ -21,10 +21,10 @@ class Register extends Controller{
         }
         $data = input('post.');
         //信息校验
-        $validate = Validate('Bis');
+         $validate = Validate('Bis');
         if(!$validate->scene('add')->check($data)){
             $this->error($validate->getError());
-        }   
+        }    
         //获取经纬度
         $lnglat=\map::getLngLat($data['address']);
         if(empty($lnglat) || $lnglat['status']!=0 || $lnglat['result']['precise'] !=1){
@@ -35,6 +35,7 @@ class Register extends Controller{
         if($accountResult){
             $this->error('用户已存在，请重新填写');
         }
+      
         //商户信息入库
         $BisData = [
             'name'=>htmlentities($data['name']),   //字符转义防XSS攻击

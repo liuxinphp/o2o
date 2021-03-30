@@ -13,6 +13,10 @@ class Index extends Base
         $this->assign('user',$this->getLoginUser());//登录信息
         $cates = $this->getRecommendCates();//获取所有分类
         $this->assign('cates',$cates);
+        //获取右侧广告位数据
+        $featuredR = model('Featured')->getFeaturedByType(1);
+        //获取大侧广告位数据
+        $featuredC = model('Featured')->getFeaturedByType(0);
         $cate = $this->getFirstRecommendCates();//一级分类
         $this->assign('cate',$cate);
         //商品分类数据
@@ -25,7 +29,9 @@ class Index extends Base
             'citys' => $citys,
             'meishicates' => $meishicates,
             'datas' => $datas,
-            'cate' =>$cate
+            'cate' =>$cate,
+            'featuredC'=>$featuredC,
+            'featuredR'=>$featuredR,
         ]);
     }
 }

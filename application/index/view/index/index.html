@@ -6,8 +6,9 @@
                     <a href="#" class="slide-prev"><i class="slide-arrow-left"></i></a>
                     <a href="#" class="slide-next"><i class="slide-arrow-right"></i></a>
                     <ul class="slideshow">
-                        <li><a href="" class="item-large"><img class="ad-pic" src="/upload/20210226/1c6baea89e4895b60a7cae55119368bf.png" /></a></li>
-                        <li><a href="" class="item-large"><img class="ad-pic" src="/upload/20170219/datu.jpg" /></a></li>
+                        {volist name="featuredC" id="vo"}
+                        <li><a href="{$vo.url}" class="item-large"><img class="ad-pic" src="{$vo.image}" /></a></li>
+                        {/volist}
                     </ul>
                 </div>
                 <div class="list-container">
@@ -18,7 +19,9 @@
         <div class="right-sidebar">
             <div class="right-ad">
                 <ul class="slidepic">
-                    <li><a href="{:url('detail/index',['id'=>$vo.id])}"><img src="" width="259px" /></a></li>
+                    {volist name="featuredR" id="vo"}
+                    <li><a href="{$vo.url}"><img src="{$vo.image}" width="259px" /></a></li>
+                    {/volist}
                 </ul>
             </div>
             
@@ -53,7 +56,7 @@
                                                 </div>
                                             </div>
                                             <div class="borderbox">
-                                                <a href="{:url('a/index',['id'=>$vo.id])}" target="_blank"><img src="" /></a>
+                                                <a href="{:url('detail/index',['id'=>$vo.id])}" target="_blank"><img src="{$vo.image}" /></a>
                                             </div>
                                         </div>
                                     </a>

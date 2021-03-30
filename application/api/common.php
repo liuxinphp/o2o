@@ -1,5 +1,5 @@
 <?php
-function show($status, $message='' , $data=[]) {
+function show($status, $message='', $data=[]) {
     return [
         'status' => intval($status),
         'message' => $message,

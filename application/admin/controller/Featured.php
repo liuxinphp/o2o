@@ -17,8 +17,6 @@ class Featured extends Base{
         if(request()->isPost()){
             //数据入库
             $data = input('post.');
-            var_dump($data);
-            die();
             //数据严格校验
             $validate = validate('Featured');
             if(!$validate->scene('add')->check($data)){
