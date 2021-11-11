@@ -23,7 +23,6 @@ class Index extends Base
         $datas = model('Deal')->getNormalDealByCategoryCityId(2,$this->city->id);
         //获取4个子分类
         $meishicates = model('Category')->getSedRecommendCategory(2);
-        
         $this->assign('controller',strtolower(request()->controller()));
         return $this->fetch('',[
             'citys' => $citys,
